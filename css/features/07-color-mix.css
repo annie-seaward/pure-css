@@ -1,0 +1,33 @@
+/* ─────────────────────────────────────────
+   07 — COLOR-MIX()
+───────────────────────────────────────── */
+.color-mix-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+}
+
+.cm-swatch {
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: flex-end;
+  padding: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  color: var(--white-60);
+  letter-spacing: 0.05em;
+  transition: transform var(--duration-fast);
+}
+.cm-swatch:hover { transform: scale(1.05); }
+
+.cm-1 { background: var(--electric); }
+.cm-2 { background: color-mix(in oklch, var(--electric) 80%, var(--coral)); }
+.cm-3 { background: color-mix(in oklch, var(--electric) 60%, var(--coral)); }
+.cm-4 { background: color-mix(in oklch, var(--electric) 40%, var(--coral)); }
+.cm-5 { background: color-mix(in oklch, var(--electric) 20%, var(--coral)); }
+.cm-6 { background: color-mix(in oklch, var(--electric) 80%, var(--purple)); }
+.cm-7 { background: color-mix(in oklch, var(--electric) 60%, var(--purple)); }
+.cm-8 { background: color-mix(in oklch, var(--electric) 40%, var(--purple)); }
+.cm-9 { background: color-mix(in oklch, var(--electric) 20%, var(--purple)); }
+.cm-10 { background: var(--purple); }

@@ -1,0 +1,66 @@
+/* ─────────────────────────────────────────
+   DESIGN TOKENS
+───────────────────────────────────────── */
+:root {
+  /* Brand palette */
+  --ink:        #0a0a0a;
+  --paper:      #f5f0e8;
+  --electric:   #00ff88;
+  --volt:       #cfff04;
+  --coral:      #ff4d3b;
+  --mid:        #3d3d3d;
+  --rule:       #c8c2b4;
+  --purple:     #6600ff;
+
+  /* Typography */
+  --mono:       'IBM Plex Mono', monospace;
+  --display:    'Bebas Neue', sans-serif;
+  --serif:      'Instrument Serif', serif;
+  --sans:       'Syne', sans-serif;
+
+  /* Gray scale */
+  --gray-0:  #050505;
+  --gray-1:  #0d0d0d;
+  --gray-2:  #111111;
+  --gray-3:  #1a1a1a;
+  --gray-4:  #1e1e1e;
+  --gray-5:  #222222;
+  --gray-6:  #333333;
+  --gray-7:  #444444;
+  --gray-8:  #555555;
+  --gray-9:  #666666;
+  --gray-10: #888888;
+  --gray-11: #aaaaaa;
+
+  /* Translucent tints */
+  --electric-04: rgba(0,255,136,0.04);
+  --electric-05: rgba(0,255,136,0.05);
+  --electric-06: rgba(0,255,136,0.06);
+  --electric-08: rgba(0,255,136,0.08);
+  --electric-30: rgba(0,255,136,0.30);
+  --electric-40: rgba(0,255,136,0.40);
+  --coral-05:    rgba(255,77,59,0.05);
+  --coral-30:    rgba(255,77,59,0.30);
+  --volt-20:     rgba(207,255,4,0.20);
+  --white-03:    rgba(255,255,255,0.03);
+  --white-08:    rgba(255,255,255,0.08);
+  --white-60:    rgba(255,255,255,0.60);
+  --black-15:    rgba(0,0,0,0.15);
+  --black-50:    rgba(0,0,0,0.50);
+
+  /* Z-index layers */
+  --z-tooltip: 100;
+  --z-header:  1000;
+  --z-cursor:  9999;
+
+  /* Border radius */
+  --radius-sm:   2px;
+  --radius-md:   3px;
+  --radius-lg:   4px;
+  --radius-xl:   8px;
+  --radius-full: 100px;
+
+  /* Transition durations */
+  --duration-fast: 0.2s;
+  --duration:      0.3s;
+}

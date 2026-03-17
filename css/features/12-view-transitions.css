@@ -1,0 +1,81 @@
+/* ─────────────────────────────────────────
+   12 — VIEW TRANSITIONS (Page-level)
+───────────────────────────────────────── */
+/* Demo via tab-panel with checkbox hack */
+.tabs-wrapper {
+  border: 1px solid var(--gray-5);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.tab-inputs { display: none; }
+
+.tab-bar {
+  display: flex;
+  background: var(--gray-1);
+  border-bottom: 1px solid var(--gray-4);
+}
+
+.tab-label {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  color: var(--gray-8);
+  border-right: 1px solid var(--gray-4);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+  position: relative;
+}
+.tab-label::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--electric);
+  transform: scaleX(0);
+  transition: transform var(--duration-fast);
+}
+
+#tab-1:checked ~ .tab-bar .tab-label-1,
+#tab-2:checked ~ .tab-bar .tab-label-2,
+#tab-3:checked ~ .tab-bar .tab-label-3 {
+  color: var(--electric);
+}
+#tab-1:checked ~ .tab-bar .tab-label-1::after,
+#tab-2:checked ~ .tab-bar .tab-label-2::after,
+#tab-3:checked ~ .tab-bar .tab-label-3::after {
+  transform: scaleX(1);
+}
+
+.tab-panels { background: var(--gray-2); }
+
+.tab-panel {
+  display: none;
+  padding: 2rem;
+  font-size: 0.85rem;
+  color: var(--gray-10);
+  line-height: 1.7;
+  animation: tab-fade 0.25s ease;
+}
+@keyframes tab-fade {
+  from { opacity: 0; transform: translateX(8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+#tab-1:checked ~ .tab-panels .tab-panel-1,
+#tab-2:checked ~ .tab-panels .tab-panel-2,
+#tab-3:checked ~ .tab-panels .tab-panel-3 {
+  display: block;
+}
+
+.tab-panel-title {
+  font-family: var(--display);
+  font-size: 1.8rem;
+  letter-spacing: 0.03em;
+  color: var(--paper);
+  margin-bottom: 0.75rem;
+}

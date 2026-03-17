@@ -1,0 +1,67 @@
+/* ─────────────────────────────────────────
+   08 — CSS CUSTOM PROPERTIES (LIVE CALC)
+───────────────────────────────────────── */
+.prop-demo {
+  --hue: 145;
+  --saturation: 100%;
+  --lightness: 50%;
+
+  border: 1px solid var(--gray-5);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+}
+
+.prop-color-box {
+  height: 100px;
+  background: hsl(var(--hue), var(--saturation), var(--lightness));
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--black-50);
+  margin-bottom: 1.5rem;
+  transition: background var(--duration);
+}
+
+.prop-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.prop-slider-label {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--gray-9);
+  width: 100px;
+  flex-shrink: 0;
+}
+
+input[type="range"] {
+  flex: 1;
+  appearance: none;
+  background: var(--gray-5);
+  height: 3px;
+  border-radius: var(--radius-sm);
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--electric);
+  cursor: pointer;
+}
+
+/* Use @property to register and animate custom properties */
+@property --hue {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 145;
+}

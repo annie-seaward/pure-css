@@ -1,0 +1,90 @@
+/* ─────────────────────────────────────────
+   PAGE-LEVEL SCROLL TIMELINE (header bar)
+───────────────────────────────────────── */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--electric);
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: page-progress linear;
+  animation-timeline: scroll(root block);
+  z-index: var(--z-header);
+}
+
+@keyframes page-progress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ─────────────────────────────────────────
+   LETTER-SPACING ANIMATION ON HOVER
+───────────────────────────────────────── */
+.stretch-text {
+  display: inline-block;
+  transition: letter-spacing var(--duration) ease, color var(--duration);
+}
+.stretch-text:hover {
+  letter-spacing: 0.2em;
+  color: var(--electric);
+}
+
+/* ─────────────────────────────────────────
+   GLASSMORPHISM CALLOUT
+───────────────────────────────────────── */
+.glass-callout {
+  background: var(--white-03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--white-08);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+}
+
+.glass-callout p {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: var(--gray-10);
+}
+
+.glass-callout strong { color: var(--electric); }
+
+.glass-callout--tight {
+  margin-top: 1.5rem;
+}
+
+/* ─────────────────────────────────────────
+   CSS-ONLY TOOLTIP (title attr alternative)
+───────────────────────────────────────── */
+[data-tooltip] {
+  position: relative;
+}
+[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  background: var(--gray-3);
+  border: 1px solid var(--gray-6);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-fast), transform var(--duration-fast);
+  transform: translateX(-50%) translateY(4px);
+  z-index: var(--z-tooltip);
+}
+[data-tooltip]:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

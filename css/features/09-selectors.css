@@ -1,0 +1,45 @@
+/* ─────────────────────────────────────────
+   09 — :IS() / :WHERE() / :NOT()
+───────────────────────────────────────── */
+.selector-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.sel-item {
+  background: var(--gray-2);
+  border: 1px solid var(--gray-4);
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--gray-9);
+  text-align: center;
+  transition: all var(--duration-fast);
+}
+
+/* :is() groups selectors */
+.sel-item:is(.featured, .highlight) {
+  border-color: var(--electric-40);
+  color: var(--electric);
+  background: var(--electric-05);
+}
+
+/* :not() exclusion */
+.sel-item:not(.disabled):hover {
+  border-color: var(--volt);
+  color: var(--volt);
+}
+
+.sel-item.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* :where() — same as :is() but 0 specificity */
+:where(.selector-grid) .sel-item.active {
+  border-color: var(--coral);
+  color: var(--coral);
+  background: var(--coral-05);
+}

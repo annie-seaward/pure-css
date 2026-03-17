@@ -1,0 +1,91 @@
+/* ─────────────────────────────────────────
+   05 — CONTAINER QUERIES
+───────────────────────────────────────── */
+.cq-outer {
+  container-type: inline-size;
+  container-name: card-container;
+}
+
+.cq-card {
+  background: var(--gray-2);
+  border: 1px solid var(--gray-5);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cq-card-badge {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: var(--electric);
+  color: var(--ink);
+  padding: 2px 8px;
+  align-self: flex-start;
+}
+
+.cq-card-title {
+  font-family: var(--display);
+  font-size: 1.6rem;
+  letter-spacing: 0.02em;
+}
+
+.cq-card-body {
+  font-size: 0.85rem;
+  color: var(--gray-10);
+  line-height: 1.6;
+}
+
+.cq-card-meta {
+  display: none;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--gray-8);
+  letter-spacing: 0.1em;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--gray-4);
+}
+
+/* When container is wide enough */
+@container card-container (min-width: 400px) {
+  .cq-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .cq-card-title { font-size: 2.2rem; }
+  .cq-card-meta { display: block; margin-left: auto; }
+}
+
+.cq-demo-inner {
+  padding: 1rem;
+}
+
+.cq-card-meta-label {
+  font-size: 0.65rem;
+  color: var(--electric);
+  margin-bottom: 0.3rem;
+}
+
+/* Resize handle for interactive demo */
+.resize-wrapper {
+  resize: horizontal;
+  overflow: hidden;
+  min-width: 220px;
+  max-width: 100%;
+  border: 1px dashed var(--gray-6);
+  border-radius: var(--radius-lg);
+  padding: 0;
+}
+.resize-hint {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-7);
+  text-align: right;
+  padding: 0.4rem 0.75rem 0;
+}

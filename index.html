@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pure CSS — No JavaScript Required</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Söhne+Mono,monospace&family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- Page scroll progress — CSS only via scroll-driven animations -->
+    <div class="progress-bar" aria-hidden="true"></div>
+
+    <!-- ═══════════════════════════════════════ HERO ════════════════════════════════════════ -->
+    <header class="hero">
+      <nav class="hero-nav">
+        <div class="logo">∞CSS</div>
+        <ul class="nav-links">
+          <li><a href="#selectors">Selectors</a></li>
+          <li><a href="#layout">Layout</a></li>
+          <li><a href="#animation">Motion</a></li>
+          <li><a href="#colour">Colour</a></li>
+          <li><a href="#ui">UI</a></li>
+        </ul>
+      </nav>
+
+      <main class="hero-main">
+        <p class="hero-eyebrow">The Browser Has Changed — No Script Needed</p>
+        <h1 class="hero-headline">
+          Pure <em>CSS</em>
+          Power
+        </h1>
+        <p class="hero-sub">
+          Everything on this page — the animations, accordions, tabs, tooltips,
+          progress bars — built with <em>zero lines of JavaScript.</em>
+        </p>
+      </main>
+
+      <footer class="hero-footer">
+        <div class="hero-scroll">
+          <div class="scroll-line"></div>
+          Scroll to explore
+        </div>
+        <div class="hero-stat">
+          <strong>0</strong>
+          <span>lines of javascript</span>
+        </div>
+      </footer>
+    </header>
+
+    <!-- MARQUEE STRIP -->
+    <div class="marquee-strip" aria-hidden="true">
+      <div class="marquee-inner">
+        <span>:has() Selector</span>
+        <span>Scroll-Driven Animations</span>
+        <span>CSS Nesting</span>
+        <span>Container Queries</span>
+        <span>Anchor Positioning</span>
+        <span>Subgrid</span>
+        <span>color-mix()</span>
+        <span>@layer</span>
+        <span>@property</span>
+        <span>:is() :where() :not()</span>
+        <span>View Transitions</span>
+        <!-- duplicate for seamless loop -->
+        <span>:has() Selector</span>
+        <span>Scroll-Driven Animations</span>
+        <span>CSS Nesting</span>
+        <span>Container Queries</span>
+        <span>Anchor Positioning</span>
+        <span>Subgrid</span>
+        <span>color-mix()</span>
+        <span>@layer</span>
+        <span>@property</span>
+        <span>:is() :where() :not()</span>
+        <span>View Transitions</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════ 01 :HAS() ════════════════════════════════════════ -->
+    <article class="section" id="selectors">
+      <div class="section-header">
+        <div class="rule-label">Relational Selectors</div>
+        <h2 class="section-title">The Parent<br /><em>Knows</em></h2>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p class="demo-label">Live Demo — click the checkbox</p>
+          <div class="has-demo">
+            <input type="checkbox" id="toggle-1" />
+            <label for="toggle-1">
+              <span class="checkbox-visual"></span>
+              Activate :has() — parent responds to child state
+            </label>
+            <div class="has-card">
+              <div class="has-card-title">Parent Element</div>
+              <div class="has-card-body">
+                When the checkbox inside me is checked, <em>I</em> change —
+                without JavaScript. <code>:has()</code> lets a parent style
+                itself based on its children.
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-callout">
+            <p>
+              <strong>Browser support:</strong> Chrome 105+, Safari 15.4+,
+              Firefox 121+. This is arguably the most requested CSS feature in
+              history.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <p class="demo-label">The CSS</p>
+          <pre><span class="com">/* Parent responds when child is :checked */</span>
+<span class="hl">.parent</span><span class="prop">:has</span>(<span class="val">input:checked</span>) {
+  <span class="prop">background</span>: <span class="val">rgba(0,255,136,0.06)</span>;
+  <span class="prop">border-color</span>: <span class="val">rgba(0,255,136,0.3)</span>;
+  <span class="prop">transform</span>: <span class="val">translateX(12px)</span>;
+}
+
+<span class="com">/* Style a sibling via the parent */</span>
+<span class="hl">.parent</span><span class="prop">:has</span>(<span class="val">input:checked</span>) <span class="hl">.title</span> {
+  <span class="prop">color</span>: <span class="val">var(--electric)</span>;
+}</pre>
+
+          <p class="body-text">
+            Previously impossible in pure CSS, <code>:has()</code> solves the
+            "parent selector" problem. Use it for form validation states,
+            navigation highlighting, empty state detection, and conditional
+            layouts — all without touching JavaScript.
+          </p>
+        </div>
+      </div>
+      <p class="mdn-link">
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/:has"
+          target="_blank"
+          rel="noopener"
+          >MDN Docs: :has() ↗</a
+        >
+      </p>
+    </article>
+
+    <!-- ═══════════════════════════════════════ 02 SCROLL-DRIVEN ANIMATIONS ════════════════════════════════════════ -->
+    <article class="section" id="animation">
+      <div class="section-header">
+        <div class="rule-label">Motion</div>
+        <h2 class="section-title">Scroll<br /><em>Orchestrated</em></h2>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p class="demo-label">Live demo — scroll inside the box</p>
+
+          <div class="scroll-demo-wrapper">
+            <div class="scroll-progress-bar"></div>
+            <div class="scroll-demo-track">
+              <div class="scroll-card">
+                <div class="scroll-card-label">animation-timeline: view()</div>
+                <div class="scroll-card-text">
+                  Each card animates in as it enters the viewport. No
+                  Intersection Observer. No JavaScript event listeners.
+                </div>
+              </div>
+              <div class="scroll-card">
+                <div class="scroll-card-label">
+                  animation-timeline: scroll()
+                </div>
+                <div class="scroll-card-text">
+                  The progress bar at the top of this box is driven by
+                  <code>scroll(nearest block)</code> — it tracks how far you've
+                  scrolled.
+                </div>
+              </div>
+              <div class="scroll-card">
+                <div class="scroll-card-label">animation-range</div>
+                <div class="scroll-card-text">
+                  Control exactly when the animation fires —
+                  <code>entry 0% entry 30%</code> means "play during the first
+                  30% of entry into view."
+                </div>
+              </div>
+              <div class="scroll-card">
+                <div class="scroll-card-label">Scroll Snapping</div>
+                <div class="scroll-card-text">
+                  Combined with <code>scroll-snap-type</code> and
+                  <code>scroll-snap-align</code>, this creates buttery paged
+                  scroll containers.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="demo-label">The CSS</p>
+          <pre><span class="com">/* Card reveal on scroll */</span>
+<span class="hl">.card</span> {
+  <span class="prop">animation</span>: <span class="val">card-reveal linear both</span>;
+  <span class="prop">animation-timeline</span>: <span class="val">view()</span>;
+  <span class="prop">animation-range</span>: <span class="val">entry 0% entry 30%</span>;
+}
+
+<span class="hl">@keyframes</span> card-reveal {
+  from {
+    <span class="prop">opacity</span>: <span class="val">0</span>;
+    <span class="prop">transform</span>: <span class="val">translateY(20px)</span>;
+  }
+}
+
+<span class="com">/* Progress bar */</span>
+<span class="hl">.progress</span> {
+  <span class="prop">animation</span>: <span class="val">grow linear</span>;
+  <span class="prop">animation-timeline</span>: <span class="val">scroll(nearest block)</span>;
+}
+
+<span class="hl">@keyframes</span> grow {
+  to { <span class="prop">transform</span>: <span class="val">scaleX(1)</span>; }
+}</pre>
+          <p class="body-text">
+            Scroll-Driven Animations land in Chrome 115+ and are coming to all
+            browsers. They replace the most common use-case for
+            <code>IntersectionObserver</code> — and they run off the main thread
+            for smooth 60fps performance.
+          </p>
+        </div>
+      </div>
+      <p class="mdn-link">
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations"
+          target="_blank"
+          rel="noopener"
+          >MDN Docs: Scroll-driven Animations ↗</a
+        >
+      </p>
+    </article>
+
+    <!-- ═══════════════════════════════════════ 03 CSS NESTING ════════════════════════════════════════ -->
+    <article class="section">
+      <div class="section-header">
+        <div class="rule-label">Syntax</div>
+        <h2 class="section-title">Native<br /><em>Nesting</em></h2>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p class="demo-label">Live Demo — hover the items</p>
+          <div class="nesting-demo">
+            <div class="nest-title stretch-text">
+              Hover me — I'm styled with nested CSS
+            </div>
+            <ul class="nest-list">
+              <li>Nested rules — no preprocessor needed</li>
+              <li>Full browser support as of mid-2024</li>
+              <li>Hover state defined inside the parent rule</li>
+              <li>Replaces Sass/LESS for most use-cases</li>
+            </ul>
+          </div>
+
+          <div class="glass-callout">
+            <p>
+              <strong>No build step required.</strong> Native CSS nesting means
+              you can write structured, readable CSS without Sass, Less, or
+              PostCSS. Your stylesheet is your source of truth.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <p class="demo-label">The CSS</p>
+          <pre><span class="com">/* Native nesting — ships in all browsers */</span>
+<span class="hl">.card</span> {
+  <span class="prop">background</span>: <span class="val">#111</span>;
+
+  <span class="com">/* Nested child selector */</span>
+  <span class="prop">&</span> <span class="hl">.title</span> {
+    <span class="prop">color</span>: <span class="val">white</span>;
+
+    <span class="com">/* Nested pseudo-class */</span>
+    <span class="prop">&:hover</span> { <span class="prop">color</span>: <span class="val">var(--electric)</span>; }
+  }
+
+  <span class="prop">&</span> <span class="hl">li</span> {
+    <span class="prop">border-bottom</span>: <span class="val">1px solid #1e1e1e</span>;
+
+    <span class="prop">&:last-child</span> { <span class="prop">border-bottom</span>: <span class="val">none</span>; }
+    <span class="prop">&:hover</span>     { <span class="prop">padding-left</span>: <span class="val">0.5rem</span>; }
+  }
+}</pre>
+        </div>
+      </div>
+      <p class="mdn-link">
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting"
+          target="_blank"
+          rel="noopener"
+          >MDN Docs: CSS Nesting ↗</a
+        >
+      </p>
+    </article>
+
+    <!-- ═══════════════════════════════════════ 04 CONTAINER QUERIES ════════════════════════════════════════ -->
+    <article class="section" id="layout">
+      <div class="section-header">
+        <div class="rule-label">Responsive Layout</div>
+        <h2 class="section-title">Container<br /><em>Queries</em></h2>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p class="demo-label">
+            Drag the right edge to resize the container ↔
+          </p>
+          <div class="resize-wrapper">
+            <div class="resize-hint">← drag →</div>
+            <div class="cq-demo-inner">
+              <div class="cq-outer">
+                <div class="cq-card">
+                  <span class="cq-card-badge">Container Query</span>
+                  <div>
+                    <div class="cq-card-title">Adaptive Card</div>
+                    <div class="cq-card-body">
+                      This card changes layout based on its
+                      <em>container width</em>, not the viewport. Make it wider
+                      to see the horizontal layout appear.
+                    </div>
+                  </div>
+                  <div class="cq-card-meta">
+                    <div class="cq-card-meta-label">
+                      WIDE LAYOUT
+                    </div>
+                    <div>≥ 400px container</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-callout">
+            <p>
+              Container queries mean reusable components can be truly adaptive —
+              they respond to <strong>where they're placed</strong>, not the
+              viewport size. One component, infinite contexts.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <p class="demo-label">The CSS</p>
+          <pre><span class="com">/* Define the container */</span>
+<span class="hl">.wrapper</span> {
+  <span class="prop">container-type</span>: <span class="val">inline-size</span>;
+  <span class="prop">container-name</span>: <span class="val">card-container</span>;
+}
+
+<span class="com">/* Query the container, not the viewport */</span>
+<span class="hl">@container</span> card-container (<span class="prop">min-width</span>: <span class="val">400px</span>) {
+  <span class="hl">.card</span> {
+    <span class="prop">flex-direction</span>: <span class="val">row</span>;
+  }
+
+  <span class="hl">.card-meta</span> {
+    <span class="prop">display</span>: <span class="val">block</span>;
+  }
+}</pre>
+
+          <p class="body-text">
+            The holy grail of responsive design — components that know their
+            context. Sidebar widgets, grid cards, and modular UI can all adapt
+            to their container independently of the page layout.
+          </p>
+        </div>
+      </div>
+      <p class="mdn-link">
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries"
+          target="_blank"
+          rel="noopener"
+          >MDN Docs: Container Queries ↗</a
+        >
+      </p>
+    </article>
+
+    <!-- ═══════════════════════════════════════ 05 CSS ANCHOR POSITIONING ════════════════════════════════════════ -->
+    <article class="section">
+      <div class="section-header">
+        <div class="rule-label">Positioning</div>
+        <h2 class="section-title">Anchor<br /><em>Positioning</em></h2>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p class="demo-label">Hover the button — tooltip positions itself</p>
+          <div class="anchor-demo">
+            <button class="anchor-btn" data-tooltip="Hover for tooltip">
+              Hover me
+            </button>
+            <div class="anchor-tooltip">
+              📌 I'm anchored to that button using CSS alone —
+              <code>position-anchor: --my-btn</code>
+            </div>
+            <p class="anchor-demo-note">
+              No <code>getBoundingClientRect()</code>. No <code>popperjs</code>.
+              No JavaScript.
+            </p>
+          </div>
+
+          <div class="glass-callout">
+            <p>
+              <strong>CSS Anchor Positioning</strong> replaces an entire
+              category of JS: tooltips, popovers, dropdowns, and floating UI all
+              tethered to their target element without a single line of script.
+              Chrome 125+.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <p class="demo-label">The CSS</p>
+          <pre><span class="com">/* Name the anchor element */</span>
+<span class="hl">.btn</span> {
+  <span class="prop">anchor-name</span>: <span class="val">--my-btn</span>;
+  <span class="prop">position</span>: <span class="val">relative</span>;
+}
+
+<span class="com">/* Position relative to the anchor */</span>
+<span class="hl">.tooltip</span> {
+  <span class="prop">position</span>: <span class="val">absolute</span>;
+  <span class="prop">position-anchor</span>: <span class="val">--my-btn</span>;
+  <span class="prop">top</span>: <span class="val">calc(anchor(bottom) + 10px)</span>;
+  <span class="prop">left</span>: <span class="val">anchor(left)</span>;
+}
+
+<span class="com">/* Show on hover */</span>
+<span class="hl">.btn:hover</span> + <span class="hl">.tooltip</span> {
+  <span class="prop">opacity</span>: <span class="val">1</span>;
+}</pre>
+        </div>
+      </div>
+      <p class="mdn-link">
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning"
+          target="_blank"
+          rel="noopener"
+          >MDN Docs: Anchor Positioning ↗</a
+        >
+      </p>
+    </article>
+
+    <!-- ═══════════════════════════════════════ 06 COLOUR ════════════════════════════════════════ -->
+    <article class="section" id="colour">
+      <div class="section-header">
+        <div class="rule-label">Colour</div>
+        <h2 class="section-title">colour-<br /><em>mix()</em></h2>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p class="demo-label">
+            Generated with color-mix() in oklch — hover swatches
+          </p>
+          <div class="color-mix-grid">
+            <div class="cm-swatch cm-1">100%</div>
+            <div class="cm-swatch cm-2">80%</div>
+            <div class="cm-swatch cm-3">60%</div>
+            <div class="cm-swatch cm-4">40%</div>
+            <div class="cm-swatch cm-5">20%</div>
+            <div class="cm-swatch cm-6">80%</div>
+            <div class="cm-swatch cm-7">60%</div>
+            <div class="cm-swatch cm-8">40%</div>
+            <div class="cm-swatch cm-9">20%</div>
+            <div class="cm-swatch cm-10">0%</div>
+          </div>
+
+          <div class="glass-callout glass-callout--tight">
+            <p>
+              Top row: <strong>electric green → coral red</strong> in 5
+              steps.<br />
+              Bottom row: <strong>electric green → violet</strong> in 5
+              steps.<br />
+              All in <code>oklch</code> — perceptually uniform, no muddy
+              midpoints.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <p class="demo-label">The CSS</p>
+          <pre><span class="com">/* Mix two colours at any ratio */</span>
+<span class="hl">.swatch</span> {
+  <span class="prop">background</span>: <span class="val">color-mix(</span>
+    <span class="val">in oklch,</span>
+    <span class="val">var(--electric) 60%,</span>
+    <span class="val">var(--coral)</span>
+  <span class="val">)</span>;
+}
+
+<span class="com">/* Use for tints from a base colour */</span>
+<span class="hl">.bg-tint</span> {
+  <span class="prop">background</span>: <span class="val">color-mix(</span>
+    <span class="val">in oklch,</span>
+    <span class="val">var(--accent) 15%,</span>
+    <span class="val">transparent</span>
+  <span class="val">)</span>;
+}</pre>
+
+          <p class="body-text">
+            <code>color-mix()</code> replaces Sass <code>darken()</code>,
+            <code>lighten()</code>, and <code>mix()</code>. Use it with
+            <code>oklch</code> for perceptually uniform gradients — colours stay
+            vivid rather than going grey in the middle.
+          </p>
+        </div>
+      </div>
+      <p class="mdn-link">
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix"
+          target="_blank"
+          rel="noopener"
+          >MDN Docs: color-mix() ↗</a
+        >
+      </p>
+    </article>
+
+    <!-- ═══════════════════════════════════════ 07 @LAYER ════════════════════════════════════════ -->
+    <article class="section">
+      <div class="section-header">
+        <div class="rule-label">Cascade Control</div>
+        <h2 class="section-title">Cascade<br /><em>Layers</em></h2>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p class="demo-label">Three layers — last wins</p>
+          <div class="layer-el layer-el--spaced">
+            @layer base — colour: #666
+          </div>
+          <div class="layer-el layer-el--spaced">
+            @layer components — colour: volt yellow
+          </div>
+          <div class="layer-el override">
+            @layer overrides — colour: coral red (wins)
+          </div>
+
+          <div class="glass-callout">
+            <p>
+              <strong>@layer</strong> ends specificity wars. Layers cascade in
+              declared order — later layers win regardless of selector
+              specificity. Third-party CSS can live in a
+              <code>@layer base</code> and never beat your own component styles.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <p class="demo-label">The CSS</p>
+          <pre><span class="com">/* Declare layer order up-front */</span>
+<span class="hl">@layer</span> base, components, overrides;
+
+<span class="hl">@layer</span> base {
+  <span class="hl">.el</span> { <span class="prop">color</span>: <span class="val">#666</span>; }
+}
+
+<span class="hl">@layer</span> components {
+  <span class="com">/* Wins over base, even lower specificity */</span>
+  <span class="hl">.el</span> { <span class="prop">color</span>: <span class="val">var(--volt)</span>; }
+}
+
+<span class="hl">@layer</span> overrides {
+  <span class="com">/* Always wins — it's the last layer */</span>
+  <span class="hl">.el.override</span> { <span class="prop">color</span>: <span class="val">var(--coral)</span>; }
+}</pre>
+        </div>
+      </div>
+      <p class="mdn-link">
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/@layer"
+          target="_blank"
+          rel="noopener"
+          >MDN Docs: @layer ↗</a
+        >
+      </p>
+    </article>
+
+    <!-- ═══════════════════════════════════════ 08 :IS / :WHERE / :NOT ════════════════════════════════════════ -->
+    <article class="section">
+      <div class="section-header">
+        <div class="rule-label">Selectors</div>
+        <h2 class="section-title">:is() :where()<br /><em>:not()</em></h2>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p class="demo-label">Hover the active items (not disabled)</p>
+          <div class="selector-grid">
+            <div class="sel-item featured">:is(.featured)</div>
+            <div class="sel-item">Default</div>
+            <div class="sel-item highlight">:is(.highlight)</div>
+            <div class="sel-item disabled">:not() excluded</div>
+            <div class="sel-item active">:where() active</div>
+            <div class="sel-item">Default</div>
+            <div class="sel-item active">:where() active</div>
+            <div class="sel-item disabled">:not() excluded</div>
+          </div>
+
+          <div class="glass-callout">
+            <p>
+              <code>:is()</code> groups selectors with the
+              <strong>highest specificity</strong> of its arguments.<br />
+              <code>:where()</code> does the same but with
+              <strong>zero specificity</strong> — easy to override.<br />
+              <code>:not()</code> excludes — hover anything that isn't
+              <code>.disabled</code>.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <p class="demo-label">The CSS</p>
+          <pre><span class="com">/* :is() — group with highest specificity */</span>
+<span class="hl">.item</span><span class="prop">:is</span>(<span class="val">.featured, .highlight</span>) {
+  <span class="prop">color</span>: <span class="val">var(--electric)</span>;
+}
+
+<span class="com">/* :not() — exclude specific elements */</span>
+<span class="hl">.item</span><span class="prop">:not</span>(<span class="val">.disabled</span>)<span class="prop">:hover</span> {
+  <span class="prop">color</span>: <span class="val">var(--volt)</span>;
+}
+
+<span class="com">/* :where() — zero specificity, easy override */</span>
+<span class="hl">:where</span>(<span class="val">.grid</span>) <span class="hl">.item.active</span> {
+  <span class="prop">color</span>: <span class="val">var(--coral)</span>;
+}</pre>
+        </div>
+      </div>
+      <p class="mdn-link">
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/:is"
+          target="_blank"
+          rel="noopener"
+          >MDN Docs: :is() ↗</a
+        >
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/:where"
+          target="_blank"
+          rel="noopener"
+          >MDN Docs: :where() ↗</a
+        >
+      </p>
+    </article>
+
+    <!-- ═══════════════════════════════════════ 09 SUBGRID ════════════════════════════════════════ -->
+    <article class="section">
+      <div class="section-header">
+        <div class="rule-label">Layout</div>
+        <h2 class="section-title">CSS<br /><em>Subgrid</em></h2>
+      </div>
+
+      <p class="section-intro">
+        These three cards have different amounts of content, yet their titles,
+        bodies, and footers all align perfectly across columns — via
+        <code>grid-template-rows: subgrid</code>.
+      </p>
+
+      <div class="subgrid-outer">
+        <div class="subgrid-card">
+          <div class="subgrid-card-img">
+            <span class="subgrid-icon">⚡</span>
+          </div>
+          <div class="subgrid-card-body">
+            <div class="subgrid-card-title">Performance</div>
+            <div class="subgrid-card-desc">
+              Subgrid lets children participate in the parent grid's tracks
+              without extra wrapper divs or JS height-matching hacks. Pure,
+              declarative alignment.
+            </div>
+          </div>
+          <div class="subgrid-card-footer">
+            <span>ROW SPANS PARENT</span><span>subgrid ↑</span>
+          </div>
+        </div>
+        <div class="subgrid-card">
+          <div class="subgrid-card-img">
+            <span class="subgrid-icon">🎯</span>
+          </div>
+          <div class="subgrid-card-body">
+            <div class="subgrid-card-title">Aligned</div>
+            <div class="subgrid-card-desc">Short content.</div>
+          </div>
+          <div class="subgrid-card-footer">
+            <span>INTRINSIC SIZE</span><span>subgrid ↑</span>
+          </div>
+        </div>
+        <div class="subgrid-card">
+          <div class="subgrid-card-img">
+            <span class="subgrid-icon">🌐</span>
+          </div>
+          <div class="subgrid-card-body">
+            <div class="subgrid-card-title">Cross-card Alignment</div>
+            <div class="subgrid-card-desc">
+              No matter how much content each card has, the footer row always
+              lines up across all three columns. This used to require
+              JavaScript. Now it's two CSS properties.
+            </div>
+          </div>
+          <div class="subgrid-card-footer">
+            <span>SUBGRID ROWS</span><span>subgrid ↑</span>
+          </div>
+        </div>
+      </div>
+      <p class="mdn-link">
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid"
+          target="_blank"
+          rel="noopener"
+          >MDN Docs: Subgrid ↗</a
+        >
+      </p>
+    </article>
+
+    <!-- ═══════════════════════════════════════ 10 DETAILS / ACCORDION (no JS) ════════════════════════════════════════ -->
+    <article class="section" id="ui">
+      <div class="section-header">
+        <div class="rule-label">Interactive UI</div>
+        <h2 class="section-title">JS-Free<br /><em>Accordion</em></h2>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p class="demo-label">
+            Click any item — native &lt;details&gt; element
+          </p>
+
+          <details>
+            <summary>What is the &lt;details&gt; element?</summary>
+            <div class="details-body">
+              The <code>&lt;details&gt;</code> HTML element creates a disclosure
+              widget — no JavaScript needed. Pair it with
+              <code>&lt;summary&gt;</code> for the heading. The open/close
+              animation is handled entirely with CSS transitions on the
+              <code>[open]</code> attribute selector.
+            </div>
+          </details>
+          <details>
+            <summary>Can I style it however I want?</summary>
+            <div class="details-body">
+              Absolutely. Hide the default marker with
+              <code>::-webkit-details-marker { display: none }</code> and
+              replace it with any CSS pseudo-element. The
+              <code>[open]</code> attribute selector is your friend for toggling
+              states — rotate icons, swap colours, animate content in.
+            </div>
+          </details>
+          <details>
+            <summary>What about exclusive accordions?</summary>
+            <div class="details-body">
+              HTML now supports <code>name</code> attribute on
+              <code>&lt;details&gt;</code> to create exclusive groups — only one
+              opens at a time. This is the
+              <code>&lt;details name="group"&gt;</code> pattern, analogous to
+              radio inputs.
+            </div>
+          </details>
+          <details>
+            <summary>Is it accessible?</summary>
+            <div class="details-body">
+              Yes — <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code> is
+              natively keyboard-accessible and communicates state to screen
+              readers via ARIA. No additional roles or attributes needed for
+              basic use.
+            </div>
+          </details>
+        </div>
+
+        <div>
+          <p class="demo-label">The CSS</p>
+          <pre><span class="com">/* Hide default arrow */</span>
+<span class="hl">summary</span><span class="prop">::-webkit-details-marker</span> {
+  <span class="prop">display</span>: <span class="val">none</span>;
+}
+
+<span class="com">/* Custom icon */</span>
+<span class="hl">summary</span><span class="prop">::after</span> {
+  <span class="prop">content</span>: <span class="val">'+'</span>;
+  <span class="prop">transition</span>: <span class="val">transform 0.3s</span>;
+}
+
+<span class="com">/* Rotate when open */</span>
+<span class="hl">details</span>[<span class="prop">open</span>] <span class="hl">summary</span><span class="prop">::after</span> {
+  <span class="prop">transform</span>: <span class="val">rotate(45deg)</span>;
+}
+
+<span class="com">/* Animate content in */</span>
+<span class="hl">details</span>[<span class="prop">open</span>] <span class="hl">.body</span> {
+  <span class="prop">animation</span>: <span class="val">details-open 0.3s ease</span>;
+}</pre>
+        </div>
+      </div>
+    </article>
+
+    <!-- ═══════════════════════════════════════ 11 CSS TABS (checkbox hack) ════════════════════════════════════════ -->
+    <article class="section">
+      <div class="section-header">
+        <div class="rule-label">Interactive UI</div>
+        <h2 class="section-title">CSS-Only<br /><em>Tabs</em></h2>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p class="demo-label">Click the tabs — no JavaScript</p>
+
+          <input
+            type="radio"
+            name="tabs"
+            id="tab-1"
+            class="tab-inputs"
+            checked
+          />
+          <input type="radio" name="tabs" id="tab-2" class="tab-inputs" />
+          <input type="radio" name="tabs" id="tab-3" class="tab-inputs" />
+
+          <div class="tabs-wrapper">
+            <div class="tab-bar">
+              <label class="tab-label tab-label-1" for="tab-1">Overview</label>
+              <label class="tab-label tab-label-2" for="tab-2"
+                >How It Works</label
+              >
+              <label class="tab-label tab-label-3" for="tab-3"
+                >Browser Support</label
+              >
+            </div>
+            <div class="tab-panels">
+              <div class="tab-panel tab-panel-1">
+                <div class="tab-panel-title">The Checkbox Hack</div>
+                The radio inputs are hidden off-screen. Labels act as clickable
+                triggers. CSS sibling selectors (<code>:checked ~ .panel</code>)
+                show and hide the correct panel. No JavaScript, no event
+                listeners.
+              </div>
+              <div class="tab-panel tab-panel-2">
+                <div class="tab-panel-title">The Mechanism</div>
+                Radio inputs share a <code>name</code> attribute — only one can
+                be checked at a time. The <code>:checked</code> pseudo-class
+                combined with the general sibling combinator (<code>~</code>)
+                reaches the corresponding panel and sets
+                <code>display: block</code>.
+              </div>
+              <div class="tab-panel tab-panel-3">
+                <div class="tab-panel-title">Universal Support</div>
+                This technique works in every browser released in the last
+                decade. The <code>:checked</code> selector and sibling
+                combinators are CSS Level 3 — no flags, no progressive
+                enhancement needed. It just works.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="demo-label">The CSS</p>
+          <pre><span class="com">/* Hidden radio inputs */</span>
+<span class="hl">.tab-input</span> { <span class="prop">display</span>: <span class="val">none</span>; }
+
+<span class="com">/* Hide all panels by default */</span>
+<span class="hl">.tab-panel</span> { <span class="prop">display</span>: <span class="val">none</span>; }
+
+<span class="com">/* Show active panel via :checked + ~ */</span>
+<span class="hl">#tab-1</span><span class="prop">:checked</span> ~ <span class="hl">.panels</span> <span class="hl">.panel-1</span>,
+<span class="hl">#tab-2</span><span class="prop">:checked</span> ~ <span class="hl">.panels</span> <span class="hl">.panel-2</span> {
+  <span class="prop">display</span>: <span class="val">block</span>;
+  <span class="prop">animation</span>: <span class="val">fade-in 0.25s ease</span>;
+}
+
+<span class="com">/* Active tab indicator */</span>
+<span class="hl">#tab-1</span><span class="prop">:checked</span> ~ <span class="hl">.bar</span> <span class="hl">.label-1</span><span class="prop">::after</span> {
+  <span class="prop">transform</span>: <span class="val">scaleX(1)</span>;
+}</pre>
+        </div>
+      </div>
+    </article>
+
+    <!-- ═══════════════════════════════════════ FOOTER CTA ════════════════════════════════════════ -->
+    <footer class="footer-cta">
+      <h2 class="footer-headline">
+        Ship Less<br />
+        <em>Script</em>
+      </h2>
+      <p class="footer-sub">
+        The browser is your framework. It always has been.
+      </p>
+      <div>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+          class="btn-primary"
+          target="_blank"
+        >
+          Read the Docs ↗
+        </a>
+        <a
+          href="https://github.com"
+          class="btn-ghost"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Source Code ↗
+        </a>
+      </div>
+
+      <p class="footer-bottom">
+        Built with 0 lines of JavaScript · Pure HTML &amp; CSS<br/><br/>
+        Annie &copy; 2025
+      </p>
+    </footer>
+  </body>
+</html>

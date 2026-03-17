@@ -1,0 +1,76 @@
+/* ─────────────────────────────────────────
+   02 — SCROLL-DRIVEN ANIMATIONS
+───────────────────────────────────────── */
+.scroll-demo-wrapper {
+  height: 280px;
+  overflow-y: scroll;
+  border: 1px solid var(--gray-5);
+  border-radius: var(--radius-lg);
+  scroll-snap-type: y mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--electric) var(--gray-2);
+}
+
+.scroll-demo-track {
+  padding: 1.5rem;
+}
+
+.scroll-card {
+  background: var(--gray-2);
+  border: 1px solid var(--gray-4);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: var(--radius-lg);
+  scroll-snap-align: start;
+  /* Scroll-driven animation */
+  animation: card-reveal linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+
+@keyframes card-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.scroll-card-label {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--electric);
+  margin-bottom: 0.5rem;
+}
+.scroll-card-text {
+  font-size: 0.9rem;
+  color: var(--gray-11);
+  line-height: 1.5;
+}
+
+/* Progress bar — also scroll-driven */
+.scroll-progress-demo {
+  height: 3px;
+  background: var(--gray-5);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+.scroll-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--electric), var(--volt));
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: scroll-prog linear;
+  animation-timeline: scroll(nearest block);
+}
+@keyframes scroll-prog {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}

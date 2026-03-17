@@ -1,0 +1,53 @@
+/* ─────────────────────────────────────────
+   04 — CSS NESTING
+───────────────────────────────────────── */
+/* This section's demo IS the nested CSS below */
+
+.nesting-demo {
+  border: 1px solid var(--gray-5);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+
+  & .nest-title {
+    font-family: var(--display);
+    font-size: 1.8rem;
+    letter-spacing: 0.03em;
+    color: var(--paper);
+
+    &:hover {
+      color: var(--electric);
+    }
+  }
+
+  & .nest-list {
+    list-style: none;
+    margin-top: 1rem;
+
+    & li {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      color: var(--gray-10);
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--gray-4);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: color var(--duration-fast);
+
+      &::before {
+        content: '→';
+        color: var(--electric);
+        font-size: 0.7rem;
+      }
+
+      &:hover {
+        color: var(--paper);
+        padding-left: 0.5rem;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}

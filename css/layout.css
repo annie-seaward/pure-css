@@ -1,6 +1,141 @@
 /* ─────────────────────────────────────────
+   STICKY PILLS
+   Zero height so the hero sits flush at top.
+   overflow: visible lets pills render above
+   the hero without being clipped by it.
+───────────────────────────────────────── */
+.nav-pills-wrapper {
+  position: sticky;
+  top: 0;
+  height: 0;
+  overflow: visible;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 3rem;
+  z-index: var(--z-header);
+  pointer-events: none;
+}
+
+.nav-pills-wrapper .nav-links {
+  display: flex;
+  gap: 0.4rem;
+  list-style: none;
+  pointer-events: auto;
+  animation: pills-settle linear both;
+  animation-timeline: scroll();
+  animation-range: 0px 120px;
+}
+
+@keyframes pills-settle {
+  from { transform: translateY(1.5rem); }
+  to   { transform: translateY(0.5rem); }
+}
+
+.nav-pills-wrapper .nav-links a {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-9);
+  text-decoration: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--gray-6);
+  background: color-mix(in oklch, var(--ink) 80%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: color var(--duration-fast), background var(--duration-fast), border-color var(--duration-fast);
+}
+
+.nav-pills-wrapper .nav-links a:hover {
+  border-color: var(--electric-30);
+  color: var(--electric);
+}
+
+/* ─────────────────────────────────────────
+   SCROLL-DRIVEN ACTIVE PILL
+   Named view timelines on each section;
+   referenced by the corresponding nav link.
+───────────────────────────────────────── */
+#selectors { view-timeline-name: --tl-selectors; }
+#animation { view-timeline-name: --tl-animation; }
+#layout    { view-timeline-name: --tl-layout;    }
+#colour    { view-timeline-name: --tl-colour;    }
+#ui        { view-timeline-name: --tl-ui;        }
+
+/* Hoist all named timelines to the common ancestor so the nav pills
+   (siblings of the sections) can reference them */
+.main-wrapper {
+  timeline-scope:
+    --tl-selectors,
+    --tl-animation,
+    --tl-layout,
+    --tl-colour,
+    --tl-ui;
+}
+
+@keyframes pill-active {
+  from, to {
+    background: var(--electric);
+    color: var(--ink);
+    border-color: var(--electric);
+  }
+}
+
+.nav-link-selectors {
+  animation-name: pill-active;
+  animation-timing-function: linear;
+  animation-duration: auto;
+  animation-timeline: --tl-selectors;
+  animation-range: entry 0% exit 100%;
+}
+.nav-link-layout {
+  animation-name: pill-active;
+  animation-timing-function: linear;
+  animation-duration: auto;
+  animation-timeline: --tl-layout;
+  animation-range: entry 0% exit 100%;
+}
+.nav-link-animation {
+  animation-name: pill-active;
+  animation-timing-function: linear;
+  animation-duration: auto;
+  animation-timeline: --tl-animation;
+  animation-range: entry 0% exit 100%;
+}
+.nav-link-colour {
+  animation-name: pill-active;
+  animation-timing-function: linear;
+  animation-duration: auto;
+  animation-timeline: --tl-colour;
+  animation-range: entry 0% exit 100%;
+}
+.nav-link-ui {
+  animation-name: pill-active;
+  animation-timing-function: linear;
+  animation-duration: auto;
+  animation-timeline: --tl-ui;
+  animation-range: entry 0% exit 100%;
+}
+
+/* ─────────────────────────────────────────
    HERO
 ───────────────────────────────────────── */
+.hero-nav {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-nav .logo {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  color: var(--electric);
+}
+
 .hero {
   min-height: 100vh;
   display: grid;
@@ -43,36 +178,6 @@
   pointer-events: none;
 }
 
-.hero-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-nav .logo {
-  font-family: var(--display);
-  font-size: 1.4rem;
-  letter-spacing: 0.1em;
-  color: var(--electric);
-}
-
-.hero-nav .nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-.hero-nav .nav-links a {
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--rule);
-  text-decoration: none;
-  transition: color var(--duration-fast);
-}
-.hero-nav .nav-links a:hover { color: var(--electric); }
 
 .hero-main {
   display: flex;
@@ -500,6 +605,7 @@
    RESPONSIVE
 ───────────────────────────────────────── */
 @media (max-width: 900px) {
+  .nav-pills-wrapper { padding: 0 1.5rem; }
   .hero { padding: 1.5rem; }
   .section { padding: 5rem 1.5rem; }
   .two-col { grid-template-columns: 1fr; gap: 2rem; }

@@ -223,6 +223,10 @@
   margin-top: 2rem;
   line-height: 1.5;
   animation: fade-up 0.8s 0.2s ease both;
+
+  em {
+    color: var(--paper);
+  }
 }
 
 .hero-cta {

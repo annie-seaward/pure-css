@@ -3,64 +3,63 @@
 ───────────────────────────────────────── */
 :root {
   /* Brand palette */
-  --ink:        #0a0a0a;
-  --paper:      #f5f0e8;
-  --electric:   #00ff88;
-  --volt:       #cfff04;
-  --coral:      #ff4d3b;
-  --mid:        #3d3d3d;
-  --rule:       #c8c2b4;
-  --purple:     #6600ff;
+  --ink:      oklch(14.5% 0 0);
+  --paper:    oklch(95.7% 0.0127 64.7);
+  --electric: oklch(87.6% 0.2263 152.5);
+  --volt:     oklch(93.3% 0.2269 122.3);
+  --coral:    oklch(67.1% 0.2170 29.7);
+  --rule:     oklch(81.5% 0.0214 89.0);
+  --purple:   oklch(50.4% 0.2938 285.4);
 
   /* Typography */
-  --mono:       'IBM Plex Mono', monospace;
-  --display:    'Bebas Neue', sans-serif;
-  --serif:      'Instrument Serif', serif;
-  --sans:       'Syne', sans-serif;
+  --mono: "IBM Plex Mono", monospace;
+  --display: "Bebas Neue", sans-serif;
+  --serif: "Instrument Serif", serif;
+  --sans: "Syne", sans-serif;
 
   /* Gray scale */
-  --gray-0:  #050505;
-  --gray-1:  #0d0d0d;
-  --gray-2:  #111111;
-  --gray-3:  #1a1a1a;
-  --gray-4:  #1e1e1e;
-  --gray-5:  #222222;
-  --gray-6:  #333333;
-  --gray-7:  #444444;
-  --gray-8:  #555555;
-  --gray-9:  #666666;
-  --gray-10: #888888;
-  --gray-11: #aaaaaa;
+  --gray-0:  oklch(11.5% 0 0);
+  --gray-1:  oklch(15.8% 0 0);
+  --gray-2:  oklch(17.8% 0 0);
+  --gray-3:  oklch(21.9% 0 0);
+  --gray-4:  oklch(23.5% 0 0);
+  --gray-5:  oklch(25.2% 0 0);
+  --gray-6:  oklch(32.1% 0 0);
+  --gray-7:  oklch(38.7% 0 0);
+  --gray-8:  oklch(45.0% 0 0);
+  --gray-9:  oklch(51.0% 0 0);
+  --gray-10: oklch(62.6% 0 0);
+  --gray-11: oklch(73.8% 0 0);
 
   /* Translucent tints */
-  --electric-04: rgba(0,255,136,0.04);
-  --electric-05: rgba(0,255,136,0.05);
-  --electric-06: rgba(0,255,136,0.06);
-  --electric-08: rgba(0,255,136,0.08);
-  --electric-30: rgba(0,255,136,0.30);
-  --electric-40: rgba(0,255,136,0.40);
-  --coral-05:    rgba(255,77,59,0.05);
-  --coral-30:    rgba(255,77,59,0.30);
-  --volt-20:     rgba(207,255,4,0.20);
-  --white-03:    rgba(255,255,255,0.03);
-  --white-08:    rgba(255,255,255,0.08);
-  --white-60:    rgba(255,255,255,0.60);
-  --black-15:    rgba(0,0,0,0.15);
-  --black-50:    rgba(0,0,0,0.50);
+  --electric-04: oklch(87.6% 0.2263 152.5 / 0.04);
+  --electric-05: oklch(87.6% 0.2263 152.5 / 0.05);
+  --electric-06: oklch(87.6% 0.2263 152.5 / 0.06);
+  --electric-08: oklch(87.6% 0.2263 152.5 / 0.08);
+  --electric-30: oklch(87.6% 0.2263 152.5 / 0.3);
+  --electric-40: oklch(87.6% 0.2263 152.5 / 0.4);
+  --coral-05:    oklch(67.1% 0.2170 29.7 / 0.05);
+  --coral-30:    oklch(67.1% 0.2170 29.7 / 0.3);
+  --volt-20:     oklch(93.3% 0.2269 122.3 / 0.2);
+  --white-03:    oklch(100% 0 0 / 0.03);
+  --white-08:    oklch(100% 0 0 / 0.08);
+  --white-60:    oklch(100% 0 0 / 0.6);
+  --black-15:    oklch(0% 0 0 / 0.15);
+  --black-50:    oklch(0% 0 0 / 0.5);
 
   /* Z-index layers */
   --z-tooltip: 100;
-  --z-header:  1000;
-  --z-cursor:  9999;
+  --z-header: 1000;
+  --z-cursor: 9999;
 
   /* Border radius */
-  --radius-sm:   2px;
-  --radius-md:   3px;
-  --radius-lg:   4px;
-  --radius-xl:   8px;
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 8px;
   --radius-full: 100px;
 
   /* Transition durations */
   --duration-fast: 0.2s;
-  --duration:      0.3s;
+  --duration: 0.3s;
 }

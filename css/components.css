@@ -5,7 +5,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 2px;
+  height: var(--border-lg);
   background: var(--electric);
   width: 100%;
   transform-origin: left;
@@ -16,8 +16,12 @@
 }
 
 @keyframes page-progress {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 /* ─────────────────────────────────────────
@@ -25,10 +29,12 @@
 ───────────────────────────────────────── */
 .stretch-text {
   display: inline-block;
-  transition: letter-spacing var(--duration) ease, color var(--duration);
+  transition:
+    letter-spacing var(--duration) ease,
+    color var(--duration);
 }
 .stretch-text:hover {
-  letter-spacing: 0.2em;
+  letter-spacing: var(--tracking-2xl);
   color: var(--electric);
 }
 
@@ -37,25 +43,27 @@
 ───────────────────────────────────────── */
 .glass-callout {
   background: var(--white-03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--white-08);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border: var(--border) solid var(--white-08);
   border-radius: var(--radius-xl);
-  padding: 1.5rem 2rem;
-  margin-top: 2rem;
+  padding: var(--space-11) var(--space-12);
+  margin-top: var(--space-12);
 }
 
 .glass-callout p {
   font-family: var(--mono);
-  font-size: 0.75rem;
-  line-height: 1.7;
+  font-size: var(--font-btn);
+  line-height: var(--leading-loose);
   color: var(--gray-10);
 }
 
-.glass-callout strong { color: var(--electric); }
+.glass-callout strong {
+  color: var(--electric);
+}
 
 .glass-callout--tight {
-  margin-top: 1.5rem;
+  margin-top: var(--space-11);
 }
 
 /* ─────────────────────────────────────────
@@ -67,21 +75,23 @@
 [data-tooltip]::before {
   content: attr(data-tooltip);
   position: absolute;
-  bottom: calc(100% + 8px);
+  bottom: calc(100% + var(--size-5));
   left: 50%;
   background: var(--gray-3);
-  border: 1px solid var(--gray-6);
+  border: var(--border) solid var(--gray-6);
   color: var(--paper);
   font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.05em;
-  padding: 0.4rem 0.75rem;
+  font-size: var(--font-tooltip);
+  letter-spacing: var(--tracking-base);
+  padding: var(--space-2) var(--space-5);
   border-radius: var(--radius-md);
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
-  transition: opacity var(--duration-fast), transform var(--duration-fast);
-  transform: translateX(-50%) translateY(4px);
+  transition:
+    opacity var(--duration-fast),
+    transform var(--duration-fast);
+  transform: translateX(-50%) translateY(var(--size-3));
   z-index: var(--z-tooltip);
 }
 [data-tooltip]:hover::before {

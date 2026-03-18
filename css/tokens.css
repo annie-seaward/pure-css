@@ -3,13 +3,16 @@
 ───────────────────────────────────────── */
 :root {
   /* Brand palette */
-  --ink:      oklch(14.5% 0 0);
-  --paper:    oklch(95.7% 0.0127 64.7);
+  --ink: oklch(14.5% 0 0);
+  --paper: oklch(95.7% 0.0127 64.7);
   --electric: oklch(87.6% 0.2263 152.5);
-  --volt:     oklch(93.3% 0.2269 122.3);
-  --coral:    oklch(67.1% 0.2170 29.7);
-  --rule:     oklch(81.5% 0.0214 89.0);
-  --purple:   oklch(50.4% 0.2938 285.4);
+  --volt: oklch(93.3% 0.2269 122.3);
+  --coral: oklch(67.1% 0.217 29.7);
+  --rule: oklch(81.5% 0.0214 89);
+  --purple: oklch(50.4% 0.2938 285.4);
+
+  /* Base font size (1rem anchor) */
+  --font-root: 16px;
 
   /* Typography */
   --mono: "IBM Plex Mono", monospace;
@@ -18,16 +21,16 @@
   --sans: "Syne", sans-serif;
 
   /* Gray scale */
-  --gray-0:  oklch(11.5% 0 0);
-  --gray-1:  oklch(15.8% 0 0);
-  --gray-2:  oklch(17.8% 0 0);
-  --gray-3:  oklch(21.9% 0 0);
-  --gray-4:  oklch(23.5% 0 0);
-  --gray-5:  oklch(25.2% 0 0);
-  --gray-6:  oklch(32.1% 0 0);
-  --gray-7:  oklch(38.7% 0 0);
-  --gray-8:  oklch(45.0% 0 0);
-  --gray-9:  oklch(51.0% 0 0);
+  --gray-0: oklch(11.5% 0 0);
+  --gray-1: oklch(15.8% 0 0);
+  --gray-2: oklch(17.8% 0 0);
+  --gray-3: oklch(21.9% 0 0);
+  --gray-4: oklch(23.5% 0 0);
+  --gray-5: oklch(25.2% 0 0);
+  --gray-6: oklch(32.1% 0 0);
+  --gray-7: oklch(38.7% 0 0);
+  --gray-8: oklch(45% 0 0);
+  --gray-9: oklch(51% 0 0);
   --gray-10: oklch(62.6% 0 0);
   --gray-11: oklch(73.8% 0 0);
 
@@ -38,14 +41,14 @@
   --electric-08: oklch(87.6% 0.2263 152.5 / 0.08);
   --electric-30: oklch(87.6% 0.2263 152.5 / 0.3);
   --electric-40: oklch(87.6% 0.2263 152.5 / 0.4);
-  --coral-05:    oklch(67.1% 0.2170 29.7 / 0.05);
-  --coral-30:    oklch(67.1% 0.2170 29.7 / 0.3);
-  --volt-20:     oklch(93.3% 0.2269 122.3 / 0.2);
-  --white-03:    oklch(100% 0 0 / 0.03);
-  --white-08:    oklch(100% 0 0 / 0.08);
-  --white-60:    oklch(100% 0 0 / 0.6);
-  --black-15:    oklch(0% 0 0 / 0.15);
-  --black-50:    oklch(0% 0 0 / 0.5);
+  --coral-05: oklch(67.1% 0.217 29.7 / 0.05);
+  --coral-30: oklch(67.1% 0.217 29.7 / 0.3);
+  --volt-20: oklch(93.3% 0.2269 122.3 / 0.2);
+  --white-03: oklch(100% 0 0 / 0.03);
+  --white-08: oklch(100% 0 0 / 0.08);
+  --white-60: oklch(100% 0 0 / 0.6);
+  --black-15: oklch(0% 0 0 / 0.15);
+  --black-50: oklch(0% 0 0 / 0.5);
 
   /* Z-index layers */
   --z-tooltip: 100;
@@ -60,6 +63,154 @@
   --radius-full: 100px;
 
   /* Transition durations */
+  --duration-xs: 0.1s;
+  --duration-instant: 0.15s;
   --duration-fast: 0.2s;
+  --duration-sm: 0.25s;
   --duration: 0.3s;
+  --duration-md: 0.4s;
+  --duration-lg: 0.8s;
+  --duration-xl: 2s;
+  --duration-grid: 20s;
+  --duration-marquee: 25s;
+
+  /* ─────────────────────────────────────────
+     FONT SIZE SCALE
+  ───────────────────────────────────────── */
+  --font-2xs: 0.55rem; /* swatch labels */
+  --font-meta: 0.58rem; /* support / metadata text */
+  --font-xs: 0.6rem; /* rule labels, captions */
+  --font-tooltip: 0.62rem; /* tooltip text */
+  --font-sm: 0.65rem; /* pills, nav, eyebrow, tags */
+  --font-ui: 0.7rem; /* interactive UI labels */
+  --font-btn: 0.75rem; /* button text, callouts */
+  --font-code: 0.78rem; /* preformatted code blocks */
+  --font-card: 0.8rem; /* card description text */
+  --font-inline: 0.82rem; /* body-text variant */
+  --font-base: 0.85rem; /* primary body text */
+  --font-body: 0.9rem; /* relaxed body variant */
+  --font-md: 1.1rem; /* marquee, medium display */
+  --font-sub: 1.2rem; /* subtitles, icons */
+  --font-name: 1.3rem; /* feature names */
+  --font-lg: 1.4rem; /* logos, card titles */
+  --font-icon: 1.5rem; /* decorative emoji icons */
+  --font-title: 1.6rem; /* section card titles */
+  --font-xl: 1.8rem; /* panel / nesting titles */
+  --font-resp: 2.2rem; /* responsive container title */
+  --font-icon-lg: 2.5rem; /* large decorative icons */
+  --font-2xl: 3rem; /* hero stat, display medium */
+  --font-3xl: 8rem; /* section numbering */
+
+  /* Inline-code em sizing (relative to surrounding text) */
+  --font-code-em: 0.82em;
+
+  /* Fluid / clamp sizes */
+  --font-hero: clamp(5rem, 14vw, 13rem);
+  --font-hero-sub: clamp(1.1rem, 2.5vw, 1.6rem);
+  --font-section: clamp(3rem, 7vw, 6.5rem);
+  --font-footer-hero: clamp(4rem, 10vw, 10rem);
+
+  /* ─────────────────────────────────────────
+     SPACING SCALE (rem)
+  ───────────────────────────────────────── */
+  --space-1: 0.3rem;
+  --space-2: 0.4rem;
+  --space-3: 0.5rem;
+  --space-4: 0.6rem;
+  --space-5: 0.75rem;
+  --space-6: 0.85rem;
+  --space-7: 0.9rem;
+  --space-8: 1rem;
+  --space-9: 1.2rem;
+  --space-10: 1.25rem;
+  --space-11: 1.5rem;
+  --space-12: 2rem;
+  --space-13: 2.5rem;
+  --space-14: 3rem;
+  --space-15: 3.5rem;
+  --space-16: 4rem;
+  --space-17: 5rem;
+  --space-18: 7rem;
+  --space-19: 8rem;
+
+  /* ─────────────────────────────────────────
+     FIXED SIZES (px)
+  ───────────────────────────────────────── */
+  --size-1: 2px;
+  --size-2: 3px;
+  --size-3: 4px;
+  --size-4: 6px;
+  --size-5: 8px;
+  --size-6: 10px;
+  --size-7: 12px;
+  --size-8: 14px;
+  --size-9: 16px;
+  --size-10: 20px;
+  --size-11: 30px;
+  --size-12: 40px;
+  --size-13: 60px;
+  --size-14: 100px;
+  --size-15: 120px;
+
+  /* ─────────────────────────────────────────
+     BORDER WIDTHS
+  ───────────────────────────────────────── */
+  --border: 1px;
+  --border-md: 1.5px;
+  --border-lg: 2px;
+
+  /* ─────────────────────────────────────────
+     LETTER SPACING
+  ───────────────────────────────────────── */
+  --tracking-tight: -0.01em;
+  --tracking-xs: 0.02em;
+  --tracking-sm: 0.03em;
+  --tracking-base: 0.05em;
+  --tracking-md: 0.1em;
+  --tracking-lg: 0.12em;
+  --tracking-xl: 0.15em;
+  --tracking-2xl: 0.2em;
+  --tracking-3xl: 0.25em;
+
+  /* ─────────────────────────────────────────
+     LINE HEIGHTS
+  ───────────────────────────────────────── */
+  --leading-none: 1;
+  --leading-tight: 0.92;
+  --leading-snug: 0.95;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.6;
+  --leading-loose: 1.7;
+
+  /* ─────────────────────────────────────────
+     LAYOUT
+  ───────────────────────────────────────── */
+  --max-width: 1400px;
+  --max-width-text: 540px;
+  --max-width-hero-sub: 480px;
+  --max-width-tooltip: 240px;
+  --breakpoint-container: 400px;
+  --breakpoint-mobile: 900px;
+
+  /* ─────────────────────────────────────────
+     COMPONENT TOKENS
+  ───────────────────────────────────────── */
+  --cursor-size: 10px;
+  --grid-cell: 60px; /* hero background grid cell */
+  --scroll-trigger: 120px; /* nav pills scroll animation range */
+  --scroll-demo-h: 280px; /* scroll feature demo height */
+  --feature-min-w: 260px; /* feature grid min card width */
+  --footer-glow-size: 600px; /* footer radial gradient backdrop */
+  --scroll-line-w: 40px; /* hero scroll indicator line */
+  --blur-sm: 10px;
+  --blur-md: 12px;
+  --resize-min-w: 220px; /* container query resize demo */
+  --anchor-min-h: 220px; /* anchor positioning demo */
+
+  /* ─────────────────────────────────────────
+     SCALE & OPACITY
+  ───────────────────────────────────────── */
+  --scale-hover: 1.05;
+  --scale-reveal: 0.97;
+  --opacity-dim: 0.3;
 }

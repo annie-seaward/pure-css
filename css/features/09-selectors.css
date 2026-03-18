@@ -4,16 +4,16 @@
 .selector-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.75rem;
+  gap: var(--space-5);
 }
 
 .sel-item {
   background: var(--gray-2);
-  border: 1px solid var(--gray-4);
-  padding: 1rem;
+  border: var(--border) solid var(--gray-4);
+  padding: var(--space-8);
   border-radius: var(--radius-lg);
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: var(--font-ui);
   color: var(--gray-9);
   text-align: center;
   transition: all var(--duration-fast);

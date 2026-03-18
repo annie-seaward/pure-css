@@ -2,15 +2,15 @@
    11 — DETAILS / ACCORDION (no JS!)
 ───────────────────────────────────────── */
 details {
-  border-bottom: 1px solid var(--gray-4);
+  border-bottom: var(--border) solid var(--gray-4);
   overflow: hidden;
 }
 
 details summary {
   font-family: var(--display);
-  font-size: 1.4rem;
-  letter-spacing: 0.03em;
-  padding: 1.25rem 0;
+  font-size: var(--font-lg);
+  letter-spacing: var(--tracking-sm);
+  padding: var(--space-10) 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18,24 +18,28 @@ details summary {
   list-style: none;
   transition: color var(--duration-fast);
 }
-details summary::-webkit-details-marker { display: none; }
+details summary::-webkit-details-marker {
+  display: none;
+}
 details summary::after {
-  content: '+';
+  content: "+";
   font-family: var(--mono);
-  font-size: 1.2rem;
+  font-size: var(--font-sub);
   color: var(--electric);
   transition: transform var(--duration);
 }
 details[open] summary::after {
   transform: rotate(45deg);
 }
-details[open] summary { color: var(--electric); }
+details[open] summary {
+  color: var(--electric);
+}
 
 .details-body {
-  padding: 0 0 1.5rem;
-  font-size: 0.85rem;
+  padding: 0 0 var(--space-11);
+  font-size: var(--font-base);
   color: var(--gray-10);
-  line-height: 1.7;
+  line-height: var(--leading-loose);
   font-family: var(--sans);
 }
 
@@ -44,6 +48,12 @@ details[open] .details-body {
   animation: details-open var(--duration) ease;
 }
 @keyframes details-open {
-  from { opacity: 0; transform: translateY(-8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--size-5)));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

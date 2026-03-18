@@ -1,7 +1,9 @@
 /* ─────────────────────────────────────────
    RESET & BASE
 ───────────────────────────────────────── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -9,7 +11,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: var(--font-root);
 }
 
 body {
@@ -24,96 +26,112 @@ body {
    CUSTOM CURSOR (CSS-only via ::before on hover)
 ───────────────────────────────────────── */
 .cursor-dot {
-  width: 10px;
-  height: 10px;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
   background: var(--electric);
   border-radius: 50%;
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   pointer-events: none;
   z-index: var(--z-cursor);
   /* This is a cheeky one — JS-free cursor would need hacks;
      we simply style the native cursor globally */
 }
 
-* { cursor: crosshair; }
-a, button, label { cursor: pointer; }
+* {
+  cursor: crosshair;
+}
+a,
+button,
+label {
+  cursor: pointer;
+}
 
 /* ─────────────────────────────────────────
    UTILITY
 ───────────────────────────────────────── */
 .tag {
   font-family: var(--mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
+  font-size: var(--font-sm);
+  letter-spacing: var(--tracking-xl);
   text-transform: uppercase;
   background: var(--electric);
   color: var(--ink);
-  padding: 3px 10px;
+  padding: var(--size-2) var(--size-6);
   display: inline-block;
 }
 
 .rule-label {
   font-family: var(--mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-2xl);
   text-transform: uppercase;
   color: var(--rule);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--size-7);
 }
 .rule-label::after {
-  content: '';
-  height: 1px;
+  content: "";
+  height: var(--border);
   background: var(--rule);
   flex: 1;
 }
 
 .section-num {
   font-family: var(--display);
-  font-size: 8rem;
-  line-height: 1;
+  font-size: var(--font-3xl);
+  line-height: var(--leading-none);
   color: transparent;
-  -webkit-text-stroke: 1px var(--white-08);
+  -webkit-text-stroke: var(--border) var(--white-08);
   position: absolute;
-  right: 2rem;
-  top: -1rem;
+  right: var(--space-12);
+  top: calc(-1 * var(--space-8));
   pointer-events: none;
   user-select: none;
 }
 
 code {
   font-family: var(--mono);
-  font-size: 0.82em;
+  font-size: var(--font-code-em);
   color: var(--electric);
   background: var(--electric-08);
-  padding: 2px 6px;
+  padding: var(--size-1) var(--size-4);
   border-radius: var(--radius-sm);
 }
 
 pre {
   font-family: var(--mono);
-  font-size: 0.78rem;
-  line-height: 1.7;
+  font-size: var(--font-code);
+  line-height: var(--leading-loose);
   color: var(--gray-11);
   background: var(--gray-2);
-  border: 1px solid var(--gray-5);
-  padding: 1.5rem;
+  border: var(--border) solid var(--gray-5);
+  padding: var(--space-11);
   border-radius: var(--radius-lg);
   overflow-x: auto;
   position: relative;
 }
-pre .hl { color: var(--electric); }
-pre .prop { color: var(--volt); }
-pre .val { color: var(--coral); }
-pre .com { color: var(--gray-8); font-style: italic; }
+pre .hl {
+  color: var(--electric);
+}
+pre .prop {
+  color: var(--volt);
+}
+pre .val {
+  color: var(--coral);
+}
+pre .com {
+  color: var(--gray-8);
+  font-style: italic;
+}
 
 .demo-label {
   font-family: var(--mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-xl);
   text-transform: uppercase;
   color: var(--rule);
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--space-5);
 }

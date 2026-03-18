@@ -4,7 +4,7 @@
 .subgrid-outer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: var(--space-11);
 }
 
 .subgrid-card {
@@ -12,15 +12,17 @@
   grid-row: span 3;
   grid-template-rows: subgrid;
   background: var(--gray-1);
-  border: 1px solid var(--gray-4);
+  border: var(--border) solid var(--gray-4);
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: border-color var(--duration-fast);
 }
-.subgrid-card:hover { border-color: var(--gray-6); }
+.subgrid-card:hover {
+  border-color: var(--gray-6);
+}
 
 .subgrid-card-img {
-  height: 120px;
+  height: var(--size-15);
   background: linear-gradient(135deg, var(--gray-2) 0%, var(--gray-4) 100%);
   display: flex;
   align-items: center;
@@ -28,33 +30,33 @@
 }
 
 .subgrid-icon {
-  font-size: 2.5rem;
-  opacity: 0.3;
+  font-size: var(--font-icon-lg);
+  opacity: var(--opacity-dim);
 }
 
 .subgrid-card-body {
-  padding: 1rem 1.25rem;
+  padding: var(--space-8) var(--space-10);
 }
 
 .subgrid-card-title {
   font-family: var(--display);
-  font-size: 1.4rem;
-  letter-spacing: 0.03em;
-  margin-bottom: 0.4rem;
+  font-size: var(--font-lg);
+  letter-spacing: var(--tracking-sm);
+  margin-bottom: var(--space-2);
 }
 
 .subgrid-card-desc {
-  font-size: 0.8rem;
+  font-size: var(--font-card);
   color: var(--gray-9);
-  line-height: 1.5;
+  line-height: var(--leading-normal);
 }
 
 .subgrid-card-footer {
-  padding: 0.75rem 1.25rem;
-  border-top: 1px solid var(--gray-3);
+  padding: var(--space-5) var(--space-10);
+  border-top: var(--border) solid var(--gray-3);
   font-family: var(--mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-md);
   color: var(--gray-7);
   display: flex;
   align-items: center;

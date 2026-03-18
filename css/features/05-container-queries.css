@@ -8,84 +8,90 @@
 
 .cq-card {
   background: var(--gray-2);
-  border: 1px solid var(--gray-5);
+  border: var(--border) solid var(--gray-5);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: var(--space-11);
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--space-5);
 }
 
 .cq-card-badge {
   font-family: var(--mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-xl);
   text-transform: uppercase;
   background: var(--electric);
   color: var(--ink);
-  padding: 2px 8px;
+  padding: var(--size-1) var(--size-5);
   align-self: flex-start;
 }
 
 .cq-card-title {
   font-family: var(--display);
-  font-size: 1.6rem;
-  letter-spacing: 0.02em;
+  font-size: var(--font-title);
+  letter-spacing: var(--tracking-xs);
 }
 
 .cq-card-body {
-  font-size: 0.85rem;
+  font-size: var(--font-base);
   color: var(--gray-10);
-  line-height: 1.6;
+  line-height: var(--leading-relaxed);
 }
 
 .cq-card-meta {
   display: none;
   font-family: var(--mono);
-  font-size: 0.65rem;
+  font-size: var(--font-sm);
   color: var(--gray-8);
-  letter-spacing: 0.1em;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--gray-4);
+  letter-spacing: var(--tracking-md);
+  padding-top: var(--space-5);
+  border-top: var(--border) solid var(--gray-4);
 }
 
 /* When container is wide enough */
 @container card-container (min-width: 400px) {
+  /* --breakpoint-container */
   .cq-card {
     flex-direction: row;
     align-items: center;
-    gap: 1.5rem;
+    gap: var(--space-11);
   }
-  .cq-card-title { font-size: 2.2rem; }
-  .cq-card-meta { display: block; margin-left: auto; }
+  .cq-card-title {
+    font-size: var(--font-resp);
+  }
+  .cq-card-meta {
+    display: block;
+    margin-left: auto;
+  }
 }
 
 .cq-demo-inner {
-  padding: 1rem;
+  padding: var(--space-8);
 }
 
 .cq-card-meta-label {
-  font-size: 0.65rem;
+  font-size: var(--font-sm);
   color: var(--electric);
-  margin-bottom: 0.3rem;
+  margin-bottom: var(--space-1);
 }
 
 /* Resize handle for interactive demo */
 .resize-wrapper {
   resize: horizontal;
   overflow: hidden;
-  min-width: 220px;
+  min-width: var(--resize-min-w);
   max-width: 100%;
-  border: 1px dashed var(--gray-6);
+  border: var(--border) dashed var(--gray-6);
   border-radius: var(--radius-lg);
   padding: 0;
 }
 .resize-hint {
   font-family: var(--mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-xl);
   text-transform: uppercase;
   color: var(--gray-7);
   text-align: right;
-  padding: 0.4rem 0.75rem 0;
+  padding: var(--space-2) var(--space-5) 0;
 }

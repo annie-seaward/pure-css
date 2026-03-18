@@ -4,14 +4,14 @@
 /* This section's demo IS the nested CSS below */
 
 .nesting-demo {
-  border: 1px solid var(--gray-5);
-  padding: 1.5rem;
+  border: var(--border) solid var(--gray-5);
+  padding: var(--space-11);
   border-radius: var(--radius-lg);
 
   & .nest-title {
     font-family: var(--display);
-    font-size: 1.8rem;
-    letter-spacing: 0.03em;
+    font-size: var(--font-xl);
+    letter-spacing: var(--tracking-sm);
     color: var(--paper);
 
     &:hover {
@@ -21,28 +21,28 @@
 
   & .nest-list {
     list-style: none;
-    margin-top: 1rem;
+    margin-top: var(--space-8);
 
     & li {
       font-family: var(--sans);
-      font-size: 0.85rem;
+      font-size: var(--font-base);
       color: var(--gray-10);
-      padding: 0.6rem 0;
-      border-bottom: 1px solid var(--gray-4);
+      padding: var(--space-4) 0;
+      border-bottom: var(--border) solid var(--gray-4);
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: var(--space-5);
       transition: color var(--duration-fast);
 
       &::before {
-        content: '→';
+        content: "→";
         color: var(--electric);
-        font-size: 0.7rem;
+        font-size: var(--font-ui);
       }
 
       &:hover {
         color: var(--paper);
-        padding-left: 0.5rem;
+        padding-left: var(--space-3);
       }
 
       &:last-child {

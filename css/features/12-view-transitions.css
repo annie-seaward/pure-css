@@ -3,38 +3,40 @@
 ───────────────────────────────────────── */
 /* Demo via tab-panel with checkbox hack */
 .tabs-wrapper {
-  border: 1px solid var(--gray-5);
+  border: var(--border) solid var(--gray-5);
   border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
-.tab-inputs { display: none; }
+.tab-inputs {
+  display: none;
+}
 
 .tab-bar {
   display: flex;
   background: var(--gray-1);
-  border-bottom: 1px solid var(--gray-4);
+  border-bottom: var(--border) solid var(--gray-4);
 }
 
 .tab-label {
   font-family: var(--mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.12em;
+  font-size: var(--font-sm);
+  letter-spacing: var(--tracking-lg);
   text-transform: uppercase;
-  padding: 0.75rem 1.5rem;
+  padding: var(--space-5) var(--space-11);
   color: var(--gray-8);
-  border-right: 1px solid var(--gray-4);
+  border-right: var(--border) solid var(--gray-4);
   cursor: pointer;
   transition: all var(--duration-fast);
   position: relative;
 }
 .tab-label::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 2px;
+  height: var(--border-lg);
   background: var(--electric);
   transform: scaleX(0);
   transition: transform var(--duration-fast);
@@ -51,19 +53,27 @@
   transform: scaleX(1);
 }
 
-.tab-panels { background: var(--gray-2); }
+.tab-panels {
+  background: var(--gray-2);
+}
 
 .tab-panel {
   display: none;
-  padding: 2rem;
-  font-size: 0.85rem;
+  padding: var(--space-12);
+  font-size: var(--font-base);
   color: var(--gray-10);
-  line-height: 1.7;
-  animation: tab-fade 0.25s ease;
+  line-height: var(--leading-loose);
+  animation: tab-fade var(--duration-sm) ease;
 }
 @keyframes tab-fade {
-  from { opacity: 0; transform: translateX(8px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(var(--size-5));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 #tab-1:checked ~ .tab-panels .tab-panel-1,
@@ -74,8 +84,8 @@
 
 .tab-panel-title {
   font-family: var(--display);
-  font-size: 1.8rem;
-  letter-spacing: 0.03em;
+  font-size: var(--font-xl);
+  letter-spacing: var(--tracking-sm);
   color: var(--paper);
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--space-5);
 }

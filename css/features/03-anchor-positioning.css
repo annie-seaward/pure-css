@@ -3,77 +3,81 @@
 ───────────────────────────────────────── */
 .anchor-demo {
   position: relative;
-  min-height: 220px;
-  border: 1px solid var(--gray-5);
-  padding: 2rem;
+  min-height: var(--anchor-min-h);
+  border: var(--border) solid var(--gray-5);
+  padding: var(--space-12);
   border-radius: var(--radius-lg);
 }
 
 .anchor-btn {
   font-family: var(--mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
+  font-size: var(--font-ui);
+  letter-spacing: var(--tracking-md);
   background: none;
-  border: 1px solid var(--gray-7);
+  border: var(--border) solid var(--gray-7);
   color: var(--paper);
-  padding: 0.5rem 1.2rem;
+  padding: var(--space-3) var(--space-9);
   border-radius: var(--radius-md);
   transition: border-color var(--duration-fast);
   /* Define anchor */
   anchor-name: --my-btn;
   position: absolute;
-  top: 2rem;
-  left: 2rem;
+  top: var(--space-12);
+  left: var(--space-12);
 }
-.anchor-btn:hover { border-color: var(--electric); }
+.anchor-btn:hover {
+  border-color: var(--electric);
+}
 
 .anchor-tooltip {
   position: absolute;
   position-anchor: --my-btn;
-  top: calc(anchor(bottom) + 10px);
+  top: calc(anchor(bottom) + var(--size-6));
   left: anchor(left);
   background: var(--gray-3);
-  border: 1px solid var(--electric);
-  padding: 0.75rem 1rem;
+  border: var(--border) solid var(--electric);
+  padding: var(--space-5) var(--space-8);
   border-radius: var(--radius-lg);
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: var(--font-ui);
   color: var(--electric);
   width: max-content;
-  max-width: 240px;
+  max-width: var(--max-width-tooltip);
   opacity: 0;
   transition: opacity var(--duration-fast);
   pointer-events: none;
 }
 .anchor-tooltip::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: -6px;
-  left: 16px;
-  width: 10px;
-  height: 10px;
+  top: calc(-1 * var(--size-4));
+  left: var(--size-9);
+  width: var(--size-6);
+  height: var(--size-6);
   background: var(--gray-3);
-  border-left: 1px solid var(--electric);
-  border-top: 1px solid var(--electric);
+  border-left: var(--border) solid var(--electric);
+  border-top: var(--border) solid var(--electric);
   transform: rotate(45deg);
 }
-.anchor-btn:hover + .anchor-tooltip { opacity: 1; }
+.anchor-btn:hover + .anchor-tooltip {
+  opacity: 1;
+}
 
 .anchor-demo-note {
   position: absolute;
-  bottom: 2rem;
-  left: 2rem;
+  bottom: var(--space-12);
+  left: var(--space-12);
   font-family: var(--mono);
-  font-size: 0.65rem;
+  font-size: var(--font-sm);
   color: var(--gray-7);
-  letter-spacing: 0.1em;
+  letter-spacing: var(--tracking-md);
 }
 
 /* Fallback for browsers without anchor positioning */
 @supports not (anchor-name: --x) {
   .anchor-tooltip {
-    top: 3.5rem;
-    left: 2rem;
+    top: var(--space-15);
+    left: var(--space-12);
     position: absolute;
   }
 }

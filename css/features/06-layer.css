@@ -2,7 +2,7 @@
    06 — @LAYER
 ───────────────────────────────────────── */
 .layer-el--spaced {
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--space-5);
 }
 
 @layer base, components, overrides;
@@ -10,11 +10,11 @@
 @layer base {
   .layer-el {
     color: var(--gray-9);
-    font-size: 0.85rem;
+    font-size: var(--font-base);
     background: var(--gray-1);
-    padding: 1rem;
+    padding: var(--space-8);
     border-radius: var(--radius-md);
-    border: 1px solid var(--gray-3);
+    border: var(--border) solid var(--gray-3);
   }
 }
 

@@ -2,9 +2,9 @@
    02 — SCROLL-DRIVEN ANIMATIONS
 ───────────────────────────────────────── */
 .scroll-demo-wrapper {
-  height: 280px;
+  height: var(--scroll-demo-h);
   overflow-y: scroll;
-  border: 1px solid var(--gray-5);
+  border: var(--border) solid var(--gray-5);
   border-radius: var(--radius-lg);
   scroll-snap-type: y mandatory;
   scrollbar-width: thin;
@@ -12,14 +12,14 @@
 }
 
 .scroll-demo-track {
-  padding: 1.5rem;
+  padding: var(--space-11);
 }
 
 .scroll-card {
   background: var(--gray-2);
-  border: 1px solid var(--gray-4);
-  padding: 1.5rem;
-  margin-bottom: 1rem;
+  border: var(--border) solid var(--gray-4);
+  padding: var(--space-11);
+  margin-bottom: var(--space-8);
   border-radius: var(--radius-lg);
   scroll-snap-align: start;
   /* Scroll-driven animation */
@@ -31,7 +31,7 @@
 @keyframes card-reveal {
   from {
     opacity: 0;
-    transform: translateY(20px) scale(0.97);
+    transform: translateY(var(--size-10)) scale(var(--scale-reveal));
   }
   to {
     opacity: 1;
@@ -41,24 +41,24 @@
 
 .scroll-card-label {
   font-family: var(--mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-2xl);
   text-transform: uppercase;
   color: var(--electric);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-3);
 }
 .scroll-card-text {
-  font-size: 0.9rem;
+  font-size: var(--font-body);
   color: var(--gray-11);
-  line-height: 1.5;
+  line-height: var(--leading-normal);
 }
 
 /* Progress bar — also scroll-driven */
 .scroll-progress-demo {
-  height: 3px;
+  height: var(--size-2);
   background: var(--gray-5);
   border-radius: var(--radius-sm);
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-11);
   overflow: hidden;
 }
 .scroll-progress-bar {
@@ -71,6 +71,10 @@
   animation-timeline: scroll(nearest block);
 }
 @keyframes scroll-prog {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
